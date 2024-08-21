@@ -16,7 +16,8 @@ typedef enum {
 } error_t;
 
 int main(int argc, char* argv[]) {
-	if (argc >= ARG__MAX) {
+	if (argc < ARG__MAX) {
+		puts("Usage:\n\tdow <year> <month> <day>");
 		return ERR_INVALID_ARGS;
 	}
 
@@ -27,6 +28,7 @@ int main(int argc, char* argv[]) {
 	char dateOfWeek = dow(year, month, day);
 
 	char* dowString = NULL;
+	printf("Day of week: %i\n", dateOfWeek);
 	switch (dateOfWeek) {
 		case 0:
 			dowString = "Sunday";
@@ -50,9 +52,10 @@ int main(int argc, char* argv[]) {
 			dowString = "Saturday";
 			break;
 		default:
+			puts("Error, invalid date");
 			return ERR_DATE_INVALID;
 	}
-	printf("%4u-%2u-%2u (%s)\n", year, month, day, dowString);
+	printf("%u-%02u-%02u (%s)\n", year, month, day, dowString);
 
 	return 0;
 }
