@@ -1,5 +1,5 @@
 #include <stdio.h>
-extern long key;
+extern unsigned long key;
 
 int main() {
   printf("This is the LB Lab Hello World Program!\n");
