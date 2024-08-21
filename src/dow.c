@@ -48,7 +48,7 @@ int dow(unsigned year, unsigned month, unsigned day) {
 	}
 
 	// Calc DoW
-	unsigned dayOfWeek = yearCode + monthCode + centuryCode + day - isLeapYear;
+	unsigned dayOfWeek = (yearCode + monthCode + centuryCode + day - isLeapYear) % 7;
 	
 	return dayOfWeek;
 }
