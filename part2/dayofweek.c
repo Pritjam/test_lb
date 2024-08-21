@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <dow.h>
+#include "dow.h"
 
 typedef enum {
 	ARG_PROGRAM,

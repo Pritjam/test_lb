@@ -29,10 +29,11 @@ int dow(unsigned year, unsigned month, unsigned day) {
 	switch (cal) {
 		case JULIAN:
 			centuryCode = (18 - (year / 100)) % 7;
-		case GREGORIAN:
+		case GREGORIAN: {
 			static unsigned char centuryCodes[] = {4,2,0,6,4,2,0};
 			centuryCode = centuryCodes[(year / 100) - 17];
 			break;
+		}
 	}
 	
 	// Calc leap year (if it matters)

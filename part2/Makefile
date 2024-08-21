@@ -1,3 +1,6 @@
+# THIS FILE IS NOT PROVIDED TO STUDENTS!
+# This file helps us (staff) create the files that will be provided to the students.
+
 EXEC = dow
 CC = gcc
 INCLUDE = .
