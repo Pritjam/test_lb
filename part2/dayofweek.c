@@ -17,7 +17,7 @@ typedef enum {
 
 int main(int argc, char* argv[]) {
 	if (argc < ARG__MAX) {
-		puts("Usage:\n\tdow <year> <month> <day>");
+		printf("Usage:\n\a%s <year> <month> <day>\n", argv[0]);
 		return ERR_INVALID_ARGS;
 	}
 

@@ -1,7 +1,7 @@
 # THIS FILE IS NOT PROVIDED TO STUDENTS!
 # This file helps us (staff) create the files that will be provided to the students.
 
-EXEC = dow
+EXEC = whatday
 CC = gcc
 INCLUDE = .
 CFLAGS = -Wall -Werror
@@ -10,24 +10,21 @@ SRC = dayofweek.c dow.o
 
 .PHONY: debug clean deploy
 
-dow: $(SRC)
+$(EXEC): $(SRC)
 	gcc $(CFLAGS) -o $(EXEC) $(SRC) -I $(INCLUDE)
 
 debug: CFLAGS += $(DEBUGFLAGS)
-debug: dow
+debug: $(EXEC)
 
 clean: 
 	rm $(EXEC)
 	rm -f dow.o
 
-dow.o: restore dow.c
+dow.o: dow.c
 	gcc $(CFLAGS) -c -o dow.o dow.c
 
 deploy: $(SRC)
 	rm -f dow.c
 
-restore:
-ifeq ($(wildcard dow.c),)
-	# git checkout HEAD -- dow.c
-	$(shell git checkout HEAD -- dow.c)
-endif
+dow.c:
+	git checkout HEAD -- dow.c
